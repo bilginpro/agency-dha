@@ -7,7 +7,7 @@ use GuzzleHttp;
 
 /**
  * Class Crawler
- * @package BilginPro\Ajans\Iha
+ * @package BilginPro\Ajans\Dha
  */
 class Crawler
 {
