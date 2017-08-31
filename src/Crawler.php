@@ -55,7 +55,8 @@ class Crawler
                 $news->code = (string)$item->guid;
                 $news->title = (string)$item->title;
                 $news->summary = $this->createSummary($item->description);
-                $news->content = (string)trim(preg_replace('/\s+/', ' ', $item->description)); // preg_replace is for cleaning newlines.
+                $news->content = (string)trim(preg_replace('/\s+/', ' ', $item->description));
+                // preg_replace is for cleaning newlines.
                 $news->created_at = (new Carbon($item->pubDate))->format('d.m.Y H:i:s');
                 $news->category = $this->titleCase(str_replace('DHA-', '', $item->category));
                 $news->city = (!empty($item->location) ? $this->titleCase($item->location) : '');
