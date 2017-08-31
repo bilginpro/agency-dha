@@ -7,9 +7,9 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-[EN] This package is created for crawling news from Ihlas Haber Ajansi. You have to be subscribed to IHA and obtain user credentials for being able to use this package.
+[EN] This package is created for crawling news from Dogan Haber Ajansi. You have to be subscribed to DHA and obtain user credentials for being able to use this package.
 
-[TR] Bu paket İHA abonelerinin kullanıcı bilgileriyle haberleri taramaları için oluşturulmuştur. Aşağıdaki şekilde kullandığınızda son eklenen haberlerden istediğiniz adette haberi dizi olarak alabilirsiniz. Paketi kullanmak için İHA abonesi olmalı ve kullanıcı bilgilerine sahip olmalısınız.
+[TR] Bu paket DHA abonelerinin kullanıcı bilgileriyle haberleri taramaları için oluşturulmuştur. Aşağıdaki şekilde kullandığınızda son eklenen haberlerden istediğiniz adette haberi dizi olarak alabilirsiniz. Paketi kullanmak için DHA abonesi olmalı ve kullanıcı bilgilerine sahip olmalısınız.
 
 
 
