@@ -27,15 +27,14 @@ $ composer require bilginpro/agency-dha
 
 ``` php
 $crawler = new \BilginPro\Agency\Dha\Crawler([
-    'xCode' => 'your-x-parameter',
-    'yCode' => 'your-y-parameter',
-    'limit' => 10, // optional
+    'x_code' => 'your-x-parameter',
+    'y_code' => 'your-y-parameter',
     'summaryLength' => 150 // optional
 ]);
 
-$news = $crawler->crawl();
+$news = $crawler->crawl(['limit' => 10]);
 ```
-Calling `$crawler->crawl` will return an array like this:
+Calling `$crawler->crawl()` will return an array like this:
 
 ```php
 [{
