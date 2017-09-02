@@ -14,22 +14,24 @@ class Crawler
     /**
      * @var string
      */
-    protected $xCode = '';
+    protected $x_code = '';
 
     /**
      * @var string
      */
-    protected $yCode = '';
+    protected $y_code = '';
 
     /**
      * @var int
      */
-    protected $summaryLength = 150;
+    protected $summary_length = 150;
 
     /**
-     * @var int
+     * @var array
      */
-    protected $limit = 5;
+    protected $attributes = [
+        'limit' => '5',
+    ];
 
     /**
      * Create a new Crawler Instance
@@ -43,8 +45,10 @@ class Crawler
      * Does the magic.
      * @return array
      */
-    public function crawl()
+    public function crawl($attributes = [])
     {
+        $this->setAttributes($attributes);
+
         $response = $this->fetchUrl($this->getUrl());
         $xml = new \SimpleXMLElement($response);
         $result = [];
@@ -89,7 +93,7 @@ class Crawler
                 $text = trim($text, ' \t\n\r\0\x0B-');
             }
         }
-        $summary = (string)$this->shortenString(strip_tags($text), $this->summaryLength);
+        $summary = (string)$this->shortenString(strip_tags($text), $this->summary_length);
 
         return $summary;
     }
@@ -102,14 +106,25 @@ class Crawler
         if (!is_array($config)) {
             throw new \InvalidArgumentException('$config variable must be an array.');
         }
-        if (array_key_exists('xCode', $config)) {
-            $this->xCode = $config['xCode'];
+        if (array_key_exists('x_code', $config)) {
+            $this->x_code = $config['x_code'];
         }
-        if (array_key_exists('yCode', $config)) {
-            $this->yCode = $config['yCode'];
+        if (array_key_exists('y_code', $config)) {
+            $this->y_code = $config['y_code'];
         }
         if (array_key_exists('limit', $config)) {
             $this->limit = $config['limit'];
+        }
+    }
+
+    /**
+     * Sets filter attributes.
+     * @param $attributes array
+     */
+    protected function setAttributes($attributes)
+    {
+        foreach ($attributes as $key => $value) {
+            $this->attributes[$key] = $value;
         }
     }
 
@@ -120,8 +135,8 @@ class Crawler
     public function getUrl()
     {
         $url = 'http://ajans.dha.com.tr/dhayharss_resimli.php'
-            . '?x=' . $this->xCode
-            . '&y=' . $this->yCode;
+            . '?x=' . $this->x_code
+            . '&y=' . $this->y_code;
 
         return $url;
     }
