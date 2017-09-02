@@ -54,7 +54,7 @@ class Crawler
         $result = [];
         $i = 0;
         foreach ($xml->channel->item as $item) {
-            if ($this->limit > $i) {
+            if ($this->attributes['limit'] > $i) {
                 $news = new \stdClass;
                 $news->code = (string)$item->guid;
                 $news->title = (string)$item->title;
