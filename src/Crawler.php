@@ -65,8 +65,8 @@ class Crawler
                 $news->category = $this->titleCase(str_replace('DHA-', '', $item->category));
                 $news->city = (!empty($item->location) ? $this->titleCase($item->location) : '');
                 $news->images = [];
-                if (isset($item->photos) && count($item->photos) > 0) {
-                    foreach ($item->photos as $image) {
+                if (isset($item->photoshd) && count($item->photoshd) > 0) {
+                    foreach ($item->photoshd as $image) {
                         $news->images[] = (string)$image;
                     }
                 }
